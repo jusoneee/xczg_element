@@ -44,8 +44,16 @@
           "groupName": "xczg",
           "list":[
             {
-              "path": "/xczg_test",
-              "title": "xczg_测试"
+              "path": "/xczg-test",
+              "title": "xczg-测试"
+            },
+            {
+              "path": "/xczg-button-group",
+              "title": "xczg-按钮组"
+            },
+            {
+              "path": "/xczg-table",
+              "title": "xczg-表格"
             }
           ]
         },

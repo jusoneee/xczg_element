@@ -17,7 +17,7 @@ import './assets/styles/common.css';
 import './assets/styles/fonts/style.css';
 import icon from './icon.json';
 
-import 'packages/theme-chalk/src/xczg_iconfont.scss';
+import 'packages/theme-chalk/src/xczg-iconfont.scss';
 
 Vue.use(Element);
 Vue.use(VueRouter);

@@ -1,6 +1,6 @@
 <template>
 <div>
-  组件
+  ::这是组件::
 </div>
 </template>
 <script type="text/babel">

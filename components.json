@@ -1,5 +1,7 @@
 {
-  "xczg_test": "./packages/xczg_test/index.js",
+  "xczg-table": "./packages/xczg-table/index.js",
+  "xczg-test": "./packages/xczg-test/index.js",
+  "xczg-button-group": "./packages/xczg-button-group/index.js",
   "pagination": "./packages/pagination/index.js",
   "dialog": "./packages/dialog/index.js",
   "autocomplete": "./packages/autocomplete/index.js",

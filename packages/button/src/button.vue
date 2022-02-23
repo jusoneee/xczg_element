@@ -16,6 +16,7 @@
         'is-circle': circle
       }
     ]"
+    :style="gutter"
   >
     <i class="el-icon-loading" v-if="loading"></i>
     <i :class="icon" v-if="icon && !loading"></i>
@@ -66,6 +67,19 @@
       },
       buttonDisabled() {
         return this.$options.propsData.hasOwnProperty('disabled') ? this.disabled : (this.elForm || {}).disabled;
+      },
+      gutter() {
+        let parent = this.$parent;
+        let style = {};
+        while (parent && parent.$options._componentTag !== 'xczg-button-group') {
+          parent = parent.$parent;
+        }
+        parent = parent ? parent.marginR : 0;
+        if (parent) {
+          style.marginLeft = parent / 2 + 'px';
+          style.marginRight = style.marginLeft;
+        }
+        return style;
       }
     },
 

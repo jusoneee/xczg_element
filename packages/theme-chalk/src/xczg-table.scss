@@ -1,0 +1,135 @@
+@import "./mixins/config.scss";
+
+$--thbackg : #ECF5FF !default;
+$--thwidth : 80px !default;
+$--thfw : 500 !default;
+$--thborder : 1px solid #c3c3c4 !default;
+
+$--90color:#909399 !default;
+$--40color:#409EFF !default;
+$--16fz:16px !default;
+$--none: none !default;
+$--oneh: 100% !default;
+
+$--tdbackg : #ffffff !default;
+$--tdpad : 10px 8px !default;
+// bem
+@mixin b($block) {
+    $B: $xczg+'-'+$block !global;
+    .#{$B} {
+      @content;
+    }
+}
+@mixin e($element) {
+    $E: $element !global;
+    $selector: &;
+    $currentSelector: "";
+    @each $unit in $element {
+      $currentSelector: #{$currentSelector + "." + $B + $element-separator + $unit + ","};
+    }
+    @if hitAllSpecialNestRule($selector) {
+      @at-root {
+        #{$selector} {
+          #{$currentSelector} {
+            @content;
+          }
+        }
+      }
+    } @else {
+      @at-root {
+        #{$currentSelector} {
+          @content;
+        }
+      }
+    }
+}
+@mixin m($modifier) {
+    $selector: &;
+    $currentSelector: "";
+    @each $unit in $modifier {
+      $currentSelector: #{$currentSelector + & + $modifier-separator + $unit + ","};
+    }
+  
+    @at-root {
+      #{$currentSelector} {
+        @content;
+      }
+    }
+}
+@mixin when($state) {
+    @at-root {
+      &.#{$state-prefix + $state} {
+        @content;
+      }
+    }
+}
+@include b (table) {
+    overflow: auto;
+    table{
+        width: 100%;
+        height: 100%;
+        border-collapse: collapse;
+        border-spacing:0;
+        border:$--thborder;
+    }
+    .Noborder{
+        border: $--none !important;
+    }
+    .multi_conter{
+      display: flex;
+      box-sizing: border-box;
+      border-bottom: $--thborder;
+      .row_item{
+        width: $--oneh;
+      }
+      .row_item{
+        th{
+          border-left:$--thborder;
+        }
+      }
+      .row_item:first-child{
+        th{
+          border-left:$--none;
+        }
+      }
+      td{
+        color:$--40color;
+        font-size:$--16fz ;
+      }
+    }
+    .alone_conter{
+      border-bottom: $--thborder;
+      td{
+        color:$--90color;
+      }
+    }
+    .alone_conter:last-child{
+      border-bottom: $--none;
+    }
+    @at-root .row{
+      width: 100%;
+      height: 100%;
+      display: flex;
+      .row_item{
+        display: table;
+        th{
+          display: table-cell;
+          vertical-align: middle;
+          background:$--thbackg;
+          width: $--thwidth;
+          border-right:$--thborder;
+          color:$--90color;
+          font-size: $--16fz;
+          font-weight:$--thfw;
+          div{
+          }
+        }
+        td{
+          display: table-cell;
+          vertical-align: middle;
+          background: $--tdbackg;
+          padding:$--tdpad;
+        }
+      }
+    }
+}
