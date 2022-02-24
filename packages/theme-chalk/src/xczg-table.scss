@@ -15,10 +15,11 @@ $--tdbackg : #ffffff !default;
 $--tdpad : 10px 8px !default;
 // bem
 @mixin b($block) {
-    $B: $xczg+'-'+$block !global;
-    .#{$B} {
-      @content;
-    }
+  $B:  $xczg+'-'+$block !global;
+
+  .#{$B} {
+    @content;
+  }
 }
 @mixin e($element) {
     $E: $element !global;
